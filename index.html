@@ -81,7 +81,7 @@
       // PeerJS
       const peer = new Peer();
       peer.on("open", function (id) {
-        const clientLink = window.location + "?hid=" + id;
+        const clientLink = window.location.protocol + "//" + window.location.host + "?hid=" + id;
 
         // Display client link
         clientLinkEl.innerText = clientLink;
