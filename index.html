@@ -125,7 +125,7 @@
             // `stream` is the MediaStream of the remote peer.
             handleMediaStream(stream);
 
-            if (getParameterByName("unmute")) {
+            if (getParameterByName("unmute") === "true") {
               video.muted = false;
               unmute.style.display = "none";
             }
