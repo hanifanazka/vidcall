@@ -47,4 +47,6 @@ const IndexPage = ({ location }) => {
   )
 }
 
-export default IndexPage
+
+const LoadableIndexPage = Loadable(() => import("./index"))
+export default LoadableIndexPage
