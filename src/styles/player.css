@@ -1,0 +1,75 @@
+html {
+    overflow: auto;
+}
+
+body {
+    /*background-color: black;*/
+}
+
+/*.video-control {*/
+/*    position: absolute;*/
+/*    padding: 20px 0;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    opacity: 0;*/
+/*    background: rgb(0, 0, 0);*/
+/*    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);*/
+/*    transition-duration: 0.25s;*/
+/*}*/
+
+/*.video-control:hover {*/
+/*    opacity: 1;*/
+/*}*/
+
+/*.video-control>button {*/
+/*    height: 50px;*/
+/*    width: 50px;*/
+/*    margin: 0px 8px;*/
+/*    font-size: 1.4em;*/
+/*    text-align: center;*/
+/*    border-radius: 50%;*/
+/*    cursor: pointer;*/
+/*    transition-duration: 0.25s;*/
+/*    display: inline-flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.video-control>button:hover {*/
+/*    opacity: 0.8;*/
+/*}*/
+
+
+
+
+/*video {*/
+/*    background-color: black;*/
+/*}*/
+
+/*.video-control {*/
+/*    padding: 20px 0;*/
+/*    text-align: center;*/
+/*    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);*/
+/*}*/
+
+/*.video-control>button {*/
+/*    height: 50px;*/
+/*    min-width: 50px;*/
+/*    margin: 0px 8px;*/
+/*    font-size: 20px;*/
+/*    text-align: center;*/
+/*    border-radius: 25px;*/
+/*    cursor: pointer;*/
+/*    display: inline-flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    border: 0;*/
+/*    transition-duration: 0.25s;*/
+/*    background-color: white;*/
+/*    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);*/
+/*}*/
+
+/*.video-control>button:hover {*/
+/*    opacity: 0.8;*/
+/*}*/
