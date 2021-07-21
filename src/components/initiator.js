@@ -36,6 +36,7 @@ const Initiator = ({ location }) => {
       setViewerLink(location.origin + location.pathname + "?id=" + viewerId + "&l=" + reporterId)
       dataConnection.on("open", () => {
         dataConnection.send({viewerId, reporterId})
+        console.log("Sent to dc: ", {viewerId, reporterId})
         dataConnection.on("data", (data) => {
           console.log("got data", data)
         })

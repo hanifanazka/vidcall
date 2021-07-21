@@ -1,7 +1,7 @@
 import * as React from "react"
 import Peer from "peerjs"
 import Player from "./player"
-import { Link, navigate } from "gatsby"
+import { navigate } from "@reach/router"
 import { Button, Modal, Navbar, Nav } from "react-bootstrap"
 
 /* global navigator */
@@ -27,6 +27,7 @@ const Reporter = ({ call, location, myId, initiator }) => {
         const dataConnection = peer.connect(call)
         dataConnection.on("open", () => {
           dataConnection.on("data", data => {
+            console.log("receive from DC: ", data)
             const newUrl =
               location.origin +
               location.pathname +
@@ -44,7 +45,8 @@ const Reporter = ({ call, location, myId, initiator }) => {
 
         peer.on("connection", dataConnection => {
           console.log("Got connection")
-          peer.call(call, mediaStream)
+          // TODO: Call only trusted peer
+          peer.call(dataConnection.peer, mediaStream)
         })
       })
     })

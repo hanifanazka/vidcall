@@ -13,17 +13,24 @@ const Reporter = Loadable(() => import("../components/reporter"))
 const Viewer = Loadable(() => import("../components/viewer"))
 
 const IndexPage = ({ location }) => {
-  const myId = new URL(window.location.href).searchParams.get("id")
-  const listenId = new URL(window.location.href).searchParams.get("l")
-  const callId = new URL(window.location.href).searchParams.get("c")
-  const initiatorId = new URL(window.location.href).searchParams.get("i")
+  // https://stackoverflow.com/a/901144
+  const getParameterByName = (name, url = location.href) => {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+  const myId = getParameterByName("id")
+  const listenId = getParameterByName("l")
+  const callId = getParameterByName("c")
+  const initiatorId = getParameterByName("i")
 
   const isViewer = !!(myId && listenId)
   const isReporter = !!callId
-
-  const getParameter = name => {
-    return new URL(location.href).searchParams.get(name)
-  }
+  
 
   return (
     <>
@@ -47,6 +54,4 @@ const IndexPage = ({ location }) => {
   )
 }
 
-
-const LoadableIndexPage = Loadable(() => import("./index"))
-export default LoadableIndexPage
+export default IndexPage
