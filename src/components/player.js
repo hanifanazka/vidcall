@@ -1,26 +1,28 @@
 import * as React from "react"
 import PlayerControl from "./playercontrol"
+import PlayerControlTop from "./playercontroltop"
 import Video from "./video"
+import { Helmet } from "react-helmet"
 
 import "../styles/player.css"
 
 const Player = ({ stream, muted, mediaDevice, endCall, flip, fullscreen }) => {
-  const [controlHover, setControlHover] = React.useState(false)
-  const [show, setShow] = React.useState(true)
-  const [showTimeout, setShowTimeout] = React.useState(true)
+    const [controlHover, setControlHover] = React.useState(false)
+    const [show, setShow] = React.useState(true)
+    const [showTimeout, setShowTimeout] = React.useState(true)
 
-  let whenMouseMoves = () => {
-    setShow(true)
-    clearTimeout(showTimeout)
-    setShowTimeout(
-      setTimeout(() => {
-        if (!controlHover) setShow(false)
-      }, 1000)
-    )
-  }
+    let whenMouseMoves = () => {
+        setShow(true)
+        clearTimeout(showTimeout)
+        setShowTimeout(
+            setTimeout(() => {
+                if (!controlHover) setShow(false)
+            }, 3000)
+        )
+    }
 
-  return (
-    <div
+    return (
+        <div
       style={{
         position: "absolute",
         top: 0,
@@ -38,10 +40,10 @@ const Player = ({ stream, muted, mediaDevice, endCall, flip, fullscreen }) => {
           stream={stream}
           muted={muted}
           flip={flip}
-          loop
           style={{ height: "100%", width: "100%" }}
         />
         {mediaDevice && endCall && show ? (
+          <>
           <PlayerControl
             style={{
               position: "absolute",
@@ -54,11 +56,29 @@ const Player = ({ stream, muted, mediaDevice, endCall, flip, fullscreen }) => {
             }}
             onMouseEnter={() => setControlHover(true)}
             onMouseLeave={() => setControlHover(false)}
+            mediaDevice={mediaDevice}
+            endCall={endCall}
           />
+          <PlayerControlTop
+            style={{
+              position: "absolute",
+              width: "100%",
+              top: 0,
+              padding: "20px 20px",
+              textAlign: "right",
+              background:
+                "linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)",
+            }}
+            onMouseEnter={() => setControlHover(true)}
+            onMouseLeave={() => setControlHover(false)}
+            mediaDevice={mediaDevice}
+          />
+          </>
         ) : null}
+        <Helmet><body style="background-color: black" /></Helmet>
       </div>
     </div>
-  )
+    )
 }
 
 /*
