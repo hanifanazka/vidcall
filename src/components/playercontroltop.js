@@ -7,7 +7,7 @@ import { Button, ButtonGroup, Modal, Navbar, Nav } from "react-bootstrap"
 const PlayerControl = ({ mediaDevice, ...props }) => {
     return (
         <div {...props}>
-            {mediaDevice.cameras > 1 &&
+            {mediaDevice.cameras.length > 1 &&
                 <Button variant="dark" onClick={() => mediaDevice.swapCamera()} style={{color: "white"}}>
                     <FontAwesomeIcon icon={fa.faSync} />
                 </Button>
